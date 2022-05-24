@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'push_notification_app_list' %}">App Listing</a></p>
+<table class="table">
+<tr><td>name</td><td>{{ object.name }}</td></tr>
+<tr><td>created</td><td>{{ object.created }}</td></tr>
+<tr><td>lastUpdated</td><td>{{ object.lastUpdated }}</td></tr>
+<tr><td>fcmSettings</td><td>{{ object.fcmSettings }}</td></tr>
+<tr><td>accessToken</td><td>{{ object.accessToken }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit App</a>
+
+{% endblock %}

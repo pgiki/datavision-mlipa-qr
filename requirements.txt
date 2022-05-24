@@ -1,0 +1,8 @@
+Django>=2
+django-extensions>=2
+djangorestframework>=3.11.1
+django-crispy-forms>=1.7.0
+psycopg2-binary>=2.7.5
+django-cors-headers>=3.3.0
+fcm-django
+django-filter

@@ -1,0 +1,18 @@
+[Unit]
+Description=Datavision Gunicorn process
+After=network.target
+
+[Service]
+User=giki
+Group=giki
+WorkingDirectory=/home/giki/datavision
+ExecStart=/home/giki/env/datavision/bin/gunicorn --workers 3 --bind=0.0.0.0:8080 --bind=[::1]:8080 datavision.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+#the command to be run
+/home/giki/env/datavision/bin/gunicorn --workers 3 --bind=0.0.0.0:8080 --bind=[::1]:8080 datavision.wsgi:application
+ExecStart=/home/giki/env/datavision/bin/gunicorn --workers 3 --bind unix:/home/giki/datavision/datavision/datavision.sock datavision.wsgi:application

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'push_notification_app_list' %}">App Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>name</td>
+    <td>created</td>
+    <td>lastUpdated</td>
+    <td>fcmSettings</td>
+    <td>accessToken</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.pk}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.name }}</td>
+    <td>{{ object.created }}</td>
+    <td>{{ object.lastUpdated }}</td>
+    <td>{{ object.fcmSettings }}</td>
+    <td>{{ object.accessToken }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'push_notification_app_create' %}">Create new App</a>
+{% endblock %}
